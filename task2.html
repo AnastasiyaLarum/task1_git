@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+         //1
+         function myFunction(a,b) {
+            let count = 0;
+            let sum = 0;
+                for (let index = a; index <= b; index++) {
+                    if (index%2==0) {
+                        count++;
+                        sum+=index;
+                    };
+                }
+                console.log("Сумма четных чисел в диапазоне равна: " + sum);
+                console.log("Количество четных чисел в диапазоне равно: " + count);
+         }
+         myFunction(3, 6);
+         
+         //2
+         function isPrime(num) {
+            if (num===1)  {
+             return console.log(false);
+              }
+            else if(num === 2)  {
+              return console.log(true);
+         } else   {
+           for(var x = 2; x < num; x++)  {
+           if(num % x === 0) {
+           return console.log(false);
+             }
+           }
+         return console.log(true);  
+         }
+        }
+         isPrime(9);
+
+         //3
+         function getSqrtBySequentialSelection(number) {
+          let elem = 0;
+          let result = 0;
+          while ( result !== number){
+            elem++;
+         result = elem*elem;
+          }
+          return elem;       
+
+        }
+         function getSqrtByBinarySearch(number) {
+            let result = 0;
+            let sqrt = 0;
+            let elem = number;
+            while (sqrt <= elem) {
+            const center = Math.trunc((sqrt + elem) / 2);
+            if (center * center === number) {
+               return center;
+            }
+            else if (center * center < number)  {
+            sqrt = center + 1;
+            result = center;
+             }
+           else {
+            elem = center - 1;
+           }
+          }
+          return result;
+            
+        }
+        console.log(getSqrtBySequentialSelection(25));
+       console.log(getSqrtByBinarySearch(9));
+
+        //4
+        function getFactorial(n) {
+            var result = 1;
+             while(n){
+             result *= n--;
+            }
+           return console.log("Ваш результат: "+ result);
+
+        }
+        getFactorial(5);
+
+        //5
+        function digitSum(y) {
+            let str = "" + y
+            let sum = 0
+            for (let index = 0; index < str.length; index++) 
+            sum += +str[index]
+            return console.log("Ваш результат: "+ sum);
+        }
+        digitSum(1997);
+    </script>
+</body>
+</html>
